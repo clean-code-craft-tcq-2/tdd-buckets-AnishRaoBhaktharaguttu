@@ -1,4 +1,4 @@
 
 char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent);
-int getTheLowerLimitOfTheRange(int* samplesOfChargingCurrent, int numSamples);
-int getTheUpperLimitOfTheRange(int* samplesOfChargingCurrent, int numSamples);
+int getTheLowerLimitOfTheRange(int* samplesOfChargingCurrent, size_t numSamples);
+int getTheUpperLimitOfTheRange(int* samplesOfChargingCurrent, size_t numSamples);
