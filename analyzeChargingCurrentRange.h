@@ -1,1 +1,2 @@
 
+char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent);
