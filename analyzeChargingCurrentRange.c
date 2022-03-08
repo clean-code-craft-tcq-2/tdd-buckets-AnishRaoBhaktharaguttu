@@ -7,7 +7,7 @@ char* getChargingCurrentRangeAndSamples(int samplesOfChargingCurrent[]){
 	char *chargingCurrentRangeAndSamples = (char*)malloc(100);
 	//Deduce the size of the samples
 	numSamples = sizeof(samplesOfChargingCurrent) / sizeof(samplesOfChargingCurrent[0]);
-	printf("%s\n", numSamples);
+	printf("%d\n", numSamples);
 	lowerRangeLimit = getTheLowerLimitOfTheRange(samplesOfChargingCurrent, numSamples);
 	upperRangeLimit = getTheUpperLimitOfTheRange(samplesOfChargingCurrent, numSamples);	        
 	sprintf(chargingCurrentRangeAndSamples, "%d-%d, %d", lowerRangeLimit, upperRangeLimit, numSamples);
