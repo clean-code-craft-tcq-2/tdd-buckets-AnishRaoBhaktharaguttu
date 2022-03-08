@@ -9,3 +9,10 @@ TEST_CASE("Checks the range of the charging current and the number of samples wi
 	char* chargingCurrentRangeAndSamples = getChargingCurrentRangeAndSamples(samplesOfChargingCurrent);
 	REQUIRE(strcmp(chargingCurrentRangeAndSamples, expectedRangeAndSamples) == 0);
 }
+
+TEST_CASE("Checks the range of the charging current and the number of samples within the range") {
+	int samplesOfChargingCurrent[] = {2,7,4,5,3};
+	const char* expectedRangeAndSamples = "2-7, 5";
+	char* chargingCurrentRangeAndSamples = getChargingCurrentRangeAndSamples(samplesOfChargingCurrent);
+	REQUIRE(strcmp(chargingCurrentRangeAndSamples, expectedRangeAndSamples) == 0);
+}
