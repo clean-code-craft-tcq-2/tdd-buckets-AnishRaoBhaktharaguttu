@@ -12,7 +12,7 @@ char* getChargingCurrentRangeAndSamples(int samplesOfChargingCurrent[]){
 	//Get the lower limit and upper limit of the range
 	lowerRangeLimit = getTheLowerLimitOfTheRange(samplesOfChargingCurrent, numSamples);
 	upperRangeLimit = getTheUpperLimitOfTheRange(samplesOfChargingCurrent, numSamples);	        
-	sprintf(chargingCurrentRangeAndSamples, "%d-%d, %lu", lowerRangeLimit, upperRangeLimit, numSamples);
+	sprintf(chargingCurrentRangeAndSamples, "%d-%d, %d", lowerRangeLimit, upperRangeLimit, numSamples);
 	printf("%s\n", chargingCurrentRangeAndSamples);
 	return chargingCurrentRangeAndSamples;
 }
