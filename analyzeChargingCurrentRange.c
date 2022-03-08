@@ -3,7 +3,8 @@
 #include "analyzeChargingCurrentRange.h"
 
 char* getChargingCurrentRangeAndSamples(int samplesOfChargingCurrent[]){
-	int lowerRangeLimit = 0, upperRangeLimit = 0, numSamples = 0;
+	int lowerRangeLimit = 0, upperRangeLimit = 0;
+	size_t numSamples = 0;
 	char *chargingCurrentRangeAndSamples = (char*)malloc(100);
 	//Deduce the size of the samples
 	numSamples = sizeof(samplesOfChargingCurrent) / sizeof(samplesOfChargingCurrent[0]);
@@ -15,9 +16,9 @@ char* getChargingCurrentRangeAndSamples(int samplesOfChargingCurrent[]){
 	return chargingCurrentRangeAndSamples;
 }
 
-int getTheLowerLimitOfTheRange(int* samplesOfChargingCurrent, int numSamples){
+int getTheLowerLimitOfTheRange(int* samplesOfChargingCurrent, size_t numSamples){
 	int lowerRangeLimit = samplesOfChargingCurrent[0];
-	for (int i = 0; i < numSamples; i++) {
+	for (size_t i = 0; i < numSamples; i++) {
 		if(samplesOfChargingCurrent[i] < lowerRangeLimit){
 			lowerRangeLimit = samplesOfChargingCurrent[i];
 		}
@@ -25,9 +26,9 @@ int getTheLowerLimitOfTheRange(int* samplesOfChargingCurrent, int numSamples){
 	return lowerRangeLimit;
 }
 
-int getTheUpperLimitOfTheRange(int* samplesOfChargingCurrent, int numSamples){
+int getTheUpperLimitOfTheRange(int* samplesOfChargingCurrent, size_t numSamples){
 	int upperRangeLimit = samplesOfChargingCurrent[0];
-	for (int i = 0; i < numSamples; i++) {
+	for (size_t i = 0; i < numSamples; i++) {
 		if(samplesOfChargingCurrent[i] > upperRangeLimit){
 			upperRangeLimit = samplesOfChargingCurrent[i];
 		}
