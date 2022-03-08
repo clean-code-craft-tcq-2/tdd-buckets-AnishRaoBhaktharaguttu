@@ -5,6 +5,6 @@
 TEST_CASE("Checks the range of the charging current and the number of samples within the range") {
 	int samplesOfChargingCurrent[] = {4,5};
 	const char* expectedRangeAndSamples = "4-5, 2";
-	char* rangeAndOccurences = getChargingCurrentRangeAndSamples(samplesOfChargingCurrent);
-	REQUIRE(strcmp(rangeAndOccurences, expectedRangeAndOccurences) == 0);
+	char* chargingCurrentRangeAndSamples = getChargingCurrentRangeAndSamples(samplesOfChargingCurrent);
+	REQUIRE(strcmp(chargingCurrentRangeAndSamples, expectedRangeAndSamples) == 0);
 }
