@@ -5,13 +5,14 @@
 char* getChargingCurrentRangeAndSamples(int samplesOfChargingCurrent[]){
 	int lowerRangeLimit = 0, upperRangeLimit = 0;
 	size_t numSamples = 0;
-	char *chargingCurrentRangeAndSamples = (char*)malloc(100);
+	char *chargingCurrentRangeAndSamples = (char*)malloc(50);
 	//Deduce the size of the samples
 	numSamples = sizeof(samplesOfChargingCurrent) / sizeof(samplesOfChargingCurrent[0]);
 	printf("%d\n", numSamples);
+	//Get the lower limit and upper limit of the range
 	lowerRangeLimit = getTheLowerLimitOfTheRange(samplesOfChargingCurrent, numSamples);
 	upperRangeLimit = getTheUpperLimitOfTheRange(samplesOfChargingCurrent, numSamples);	        
-	sprintf(chargingCurrentRangeAndSamples, "%d-%d, %d", lowerRangeLimit, upperRangeLimit, numSamples);
+	sprintf(chargingCurrentRangeAndSamples, "%d-%d, %lu", lowerRangeLimit, upperRangeLimit, numSamples);
 	printf("%s\n", chargingCurrentRangeAndSamples);
 	return chargingCurrentRangeAndSamples;
 }
