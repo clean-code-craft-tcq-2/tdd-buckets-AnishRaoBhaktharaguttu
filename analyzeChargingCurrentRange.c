@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "validateAndSortRange.h"
+
 #include "analyzeChargingCurrentRange.h"
 
 char* getChargingCurrentRangeAndSamples(int samplesOfChargingCurrent[]){
 	char *rangeAndOccurences = (char*)malloc(100);
- 	RangeStructure *rangeStructureArray = malloc(sizeof(struct RangeStructure) * 20);
+ 	RangeStructure *rangeStructureArray = malloc(sizeof(RangeStructure) * 20);
 	size_t numSamples = 0;
 
 	//Validate the input charging samples
@@ -33,7 +33,7 @@ char* getChargingCurrentRangeAndSamples(int samplesOfChargingCurrent[]){
 }
 
 RangeStructure *buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples) {
-    RangeStructure *rangeStructureArray = malloc(sizeof(struct RangeStructure) * 20);
+    RangeStructure *rangeStructureArray = malloc(sizeof(RangeStructure) * 20);
     
     int rangeStart = sortedSamplesOfChargingCurrent[0];
     int lastValue = sortedSamplesOfChargingCurrent[0];
