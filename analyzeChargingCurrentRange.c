@@ -4,7 +4,8 @@
 #include "analyzeChargingCurrentRange.h"
 
 char* getChargingCurrentRangeAndSamples(int samplesOfChargingCurrent[]){
-	struct RangeStructure rangeStructureArray[20];
+	char *rangeAndOccurences = (char*)malloc(100);
+ 	struct RangeStructure *rangeStructureArray = malloc(sizeof(struct RangeStructure) * 20);
 	size_t numSamples = 0;
 
 	//Validate the input charging samples
@@ -19,8 +20,16 @@ char* getChargingCurrentRangeAndSamples(int samplesOfChargingCurrent[]){
 			printf("%d\n", sortedSamplesOfChargingCurrent);
 		
 		struct RangeStructure* rangeStructureArray = buildRanges(sortedSamplesOfChargingCurrent, numSamples);
+		
+		sizeOfRangeStructureArray = sizeof(rangeStructureArray) / sizeof(rangeStructureArray[0]);
+		for(int i =0; i<sizeOfRangeStructureArray; i++){
+		sprintf(rangeAndOccurences, "%d-%d, %lu", rangeStructureArray[i].LowerLimit, rangeStructureArray[i].UpperLimit, rangeStructureArray[i].Occurences);
+		printf("Range, Readings \n");
+		printf("%s\n", rangeAndOccurences);
+		}
+		
 	}
-	return chargingCurrentRangeAndSamples;
+	return rangeAndOccurences;
 }
 
 struct RangeStructure* buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples) {
