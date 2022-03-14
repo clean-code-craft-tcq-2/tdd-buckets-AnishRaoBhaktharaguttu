@@ -52,7 +52,8 @@ RangeStructure *buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples
     for (int i = 1; i < numSamples; i++) {
         int value = sortedSamplesOfChargingCurrent[i];
         if (value != lastValue + 1) {
-	    printf("Condition ended");
+	    printf("%d", value); 
+	    printf("Condition ended\n");
             // When it enters this condition, the range has ended
 	    rangeStructureArray[i].LowerLimit = rangeStart;
 	    rangeStructureArray[i].UpperLimit = lastValue;
