@@ -1,2 +1,2 @@
 char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent);
-struct RangeStructure *buildRanges(int* sortedSamplesOfChargingCurrent, int numSamples)
+RangeStructure *buildRanges(int* sortedSamplesOfChargingCurrent, int numSamples)
