@@ -15,7 +15,7 @@ char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent){
                 
 		//Sort the input array
 	        int sortedSamplesOfChargingCurrent[numSamples];
-		sortedSamplesOfChargingCurrent = sortChargingSamples(int* samplesOfChargingCurrent, int numSamples);
+		sortedSamplesOfChargingCurrent = sortChargingSamples(samplesOfChargingCurrent, (int)numSamples);
 		for (int n=0; n<numSamples; n++)
 			printf("%d\n", sortedSamplesOfChargingCurrent[n]);
 		
