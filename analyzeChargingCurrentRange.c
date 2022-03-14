@@ -27,7 +27,7 @@ char* getChargingCurrentRangeAndSamples(int samplesOfChargingCurrent[]){
 		printf("Range, Readings \n");
 		printf("%s\n", rangeAndOccurences);
 		}
-		
+	
 	}
 	return rangeAndOccurences;
 }
@@ -53,6 +53,7 @@ struct RangeStructure* buildRanges(int sortedSamplesOfChargingCurrent[], int num
     		rangeStructureArray[i+1].LowerLimit = rangeStart;
     		rangeStructureArray[i+1].UpperLimit = lastValue;
     		rangeStructureArray[i+1].Occurences = occurences;  
+	    }
         }
 	occurences++;
     }
