@@ -8,10 +8,9 @@ char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent){
 	for(int i =0; i<6; i++){
 		printf("%d ", samplesOfChargingCurrent[i]);		
 	}
-	numSamples = SIZEOF(samplesOfChargingCurrent);
+	size_t numSamples = SIZEOF(samplesOfChargingCurrent);
 	char *rangeAndOccurences = (char*)malloc(100);
  	RangeStructure *rangeStructureArray = (RangeStructure*)malloc(sizeof(RangeStructure) * 20);
-	size_t numSamples = 0;
 
 	//Deduce the size of the samples
 
