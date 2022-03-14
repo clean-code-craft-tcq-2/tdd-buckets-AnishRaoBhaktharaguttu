@@ -19,7 +19,7 @@ char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent){
 		for (int n=0; n<numSamples; n++)
 			printf("%d\n", sortedSamplesOfChargingCurrent[n]);
 		
-		struct RangeStructure* rangeStructureArray = buildRanges(sortedSamplesOfChargingCurrent, numSamples);
+		RangeStructure* rangeStructureArray = buildRanges(sortedSamplesOfChargingCurrent, numSamples);
 		
 		int sizeOfRangeStructureArray = sizeof(rangeStructureArray) / sizeof(rangeStructureArray[0]);
 		for(int i =0; i<sizeOfRangeStructureArray; i++){
