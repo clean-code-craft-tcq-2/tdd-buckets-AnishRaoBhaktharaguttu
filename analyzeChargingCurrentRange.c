@@ -23,7 +23,7 @@ char* getChargingCurrentRangeAndSamples(int samplesOfChargingCurrent[]){
 	return chargingCurrentRangeAndSamples;
 }
 
-Struct RangeStructure* buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples) {
+struct RangeStructure* buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples) {
     struct RangeStructure *rangeStructureArray = malloc(sizeof(struct RangeStructure) * 20);
     
     int rangeStart = sortedSamplesOfChargingCurrent[0];
