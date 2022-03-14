@@ -1,4 +1,4 @@
-int negativeNumberInArray(int *chargingSamples, int numSamples);
+int negativeNumberInArray(int* chargingSamples, int numSamples);
 int* sortChargingSamples(int* chargingSamples, int numSamples);
 
 //Define the Range Structure
