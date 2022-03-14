@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "analyzeChargingCurrentRange.h"
+#define SIZEOF(arr) sizeof(arr) / sizeof(*arr)
 
 char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent){
 	printf("Entered the input printing section\n");
@@ -12,7 +13,7 @@ char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent){
 	size_t numSamples = 0;
 
 	//Deduce the size of the samples
-	numSamples = sizeof(samplesOfChargingCurrent) / sizeof(samplesOfChargingCurrent[0]);
+	numSamples = SIZEOF(samplesOfChargingCurrent);
 	printf("The size of the input array is %ld\n", numSamples);
 	
 	//Validate the input charging samples
