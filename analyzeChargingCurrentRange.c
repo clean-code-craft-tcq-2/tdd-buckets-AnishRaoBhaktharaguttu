@@ -7,12 +7,12 @@ char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent){
  	RangeStructure *rangeStructureArray = (RangeStructure*)malloc(sizeof(RangeStructure) * 20);
 	size_t numSamples = 0;
 
+	//Deduce the size of the samples
+	numSamples = sizeof(samplesOfChargingCurrent) / sizeof(samplesOfChargingCurrent[0]);
+	printf("The size of the input array is %ld\n", numSamples);
+	
 	//Validate the input charging samples
-	if(negativeNumberInArray(samplesOfChargingCurrent)){
-		//Deduce the size of the samples
-		numSamples = sizeof(samplesOfChargingCurrent) / sizeof(samplesOfChargingCurrent[0]);
-		printf("The size of the input array is %ld\n", numSamples);
-                
+	if(negativeNumberInArray(samplesOfChargingCurrent, (int)numSamples)){
 		//Sort the input array
 	        int* sortedSamplesOfChargingCurrent = sortChargingSamples(samplesOfChargingCurrent, (int)numSamples);
 		for (int n=0; n<numSamples; n++)
