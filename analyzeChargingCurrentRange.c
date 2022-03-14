@@ -3,12 +3,11 @@
 #include "analyzeChargingCurrentRange.h"
 #define SIZEOF(arr) sizeof(arr) / sizeof(*arr)
 
-char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent){
+char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent, int numSamples){
 	printf("Entered the input printing section\n");
 	for(int i =0; i<6; i++){
 		printf("%d ", samplesOfChargingCurrent[i]);		
 	}
-	size_t numSamples = SIZEOF(samplesOfChargingCurrent);
 	char *rangeAndOccurences = (char*)malloc(100);
  	RangeStructure *rangeStructureArray = (RangeStructure*)malloc(sizeof(RangeStructure) * 20);
 
@@ -17,9 +16,9 @@ char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent){
 	printf("The size of the input array is %d\n", (int)numSamples);
 	
 	//Validate the input charging samples
-	if(negativeNumberInArray(samplesOfChargingCurrent, (int)numSamples)){
+	if(negativeNumberInArray(samplesOfChargingCurrent, numSamples)){
 		//Sort the input array
-	        int* sortedSamplesOfChargingCurrent = sortChargingSamples(samplesOfChargingCurrent, (int)numSamples);
+	        int* sortedSamplesOfChargingCurrent = sortChargingSamples(samplesOfChargingCurrent, numSamples);
 		printf("The sorted array elements are\n");
 		for (int n=0; n<numSamples; n++)
 			printf("%d ", sortedSamplesOfChargingCurrent[n]);
