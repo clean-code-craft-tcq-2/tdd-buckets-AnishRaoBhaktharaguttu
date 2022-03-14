@@ -21,5 +21,6 @@ int compare (const void * a, const void * b)
 
 //Function to sort the given charging samples
 int* sortChargingSamples(int* chargingSamples, int numSamples){
-     return qsort (chargingSamples, numSamples, sizeof(int), compare);
+    qsort (chargingSamples, numSamples, sizeof(int), compare);
+    return chargingSamples;
 }
