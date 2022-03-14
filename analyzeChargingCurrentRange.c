@@ -20,8 +20,8 @@ char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent){
 		
 		RangeStructure* rangeStructureArray = buildRanges(sortedSamplesOfChargingCurrent, numSamples);
 		
-		int sizeOfRangeStructureArray = (int) (sizeof(rangeStructureArray) / sizeof(rangeStructureArray[0]));
-		for(int i =0; i<sizeOfRangeStructureArray; i++){
+		size_t sizeOfRangeStructureArray = (sizeof(rangeStructureArray) / sizeof(rangeStructureArray[0]));
+		for(int i =0; i<(int)sizeOfRangeStructureArray; i++){
 		sprintf(rangeAndOccurences, "%d-%d, %d", rangeStructureArray[i].LowerLimit, rangeStructureArray[i].UpperLimit, rangeStructureArray[i].Occurences);
 		printf("Range, Readings \n");
 		printf("%s\n", rangeAndOccurences);
