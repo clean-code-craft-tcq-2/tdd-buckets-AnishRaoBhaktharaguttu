@@ -33,7 +33,7 @@ char* getChargingCurrentRangeAndSamples(int samplesOfChargingCurrent[]){
 }
 
 RangeStructure *buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples) {
-    RangeStructure *rangeStructureArray = malloc(sizeof(RangeStructure) * 20);
+    RangeStructure *rangeStructureArray = (RangeStructure*)malloc(sizeof(RangeStructure) * 20);
     
     int rangeStart = sortedSamplesOfChargingCurrent[0];
     int lastValue = sortedSamplesOfChargingCurrent[0];
