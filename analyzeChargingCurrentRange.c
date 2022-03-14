@@ -63,5 +63,12 @@ RangeStructure *buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples
         }
 	occurences++;
     }
+    char *rangeAndOccurences = (char*)malloc(100);
+    for(int i =0; i<2; i++){
+	printf("Entered the range printing section");
+	sprintf(rangeAndOccurences, "%d-%d, %d", rangeStructureArray[i].LowerLimit, rangeStructureArray[i].UpperLimit, rangeStructureArray[i].Occurences);
+	printf("%s\n", rangeAndOccurences);
+	}	
+	
     return rangeStructureArray;
 }
