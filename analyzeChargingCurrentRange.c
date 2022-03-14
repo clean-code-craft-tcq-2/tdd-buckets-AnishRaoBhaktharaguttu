@@ -15,16 +15,19 @@ char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent){
 	if(negativeNumberInArray(samplesOfChargingCurrent, (int)numSamples)){
 		//Sort the input array
 	        int* sortedSamplesOfChargingCurrent = sortChargingSamples(samplesOfChargingCurrent, (int)numSamples);
+		printf("The sorted array elements are");
 		for (int n=0; n<numSamples; n++)
-			printf("%d\n", sortedSamplesOfChargingCurrent[n]);
+			printf("%d ", sortedSamplesOfChargingCurrent[n]);
 		
 		RangeStructure* rangeStructureArray = buildRanges(sortedSamplesOfChargingCurrent, numSamples);
 		
 		size_t sizeOfRangeStructureArray = (sizeof(rangeStructureArray) / sizeof(rangeStructureArray[0]));
+		printf("The size of the range structure array is %ld\n", sizeOfRangeStructureArray);
 		for(int i =0; i<(int)sizeOfRangeStructureArray; i++){
-		sprintf(rangeAndOccurences, "%d-%d, %d", rangeStructureArray[i].LowerLimit, rangeStructureArray[i].UpperLimit, rangeStructureArray[i].Occurences);
-		printf("Range, Readings \n");
-		printf("%s\n", rangeAndOccurences);
+			printf("Entered the range printing section");
+			sprintf(rangeAndOccurences, "%d-%d, %d", rangeStructureArray[i].LowerLimit, rangeStructureArray[i].UpperLimit, rangeStructureArray[i].Occurences);
+			printf("Range, Readings \n");
+			printf("%s\n", rangeAndOccurences);
 		}
 	
 	}
