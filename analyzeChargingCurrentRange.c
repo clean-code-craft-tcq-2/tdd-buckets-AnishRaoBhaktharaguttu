@@ -18,7 +18,7 @@ char* getChargingCurrentRangeAndSamples(int samplesOfChargingCurrent[]){
 		for (int n=0; n<numSamples; n++)
 			printf("%d\n", sortedSamplesOfChargingCurrent);
 		
-		struct RangeStructure* rangeStructureArray = sortedSamplesOfChargingCurrent(samplesOfChargingCurrent, numSamples);
+		struct RangeStructure* rangeStructureArray = buildRanges(sortedSamplesOfChargingCurrent, numSamples);
 	}
 	return chargingCurrentRangeAndSamples;
 }
