@@ -63,7 +63,6 @@ RangeStructure *buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples
 	    printf("Occurences: %d\n ", occurences); 
 	    rangeStart = value;
 	    occurences = 1;
-	    lastValue = value;
 	    if(i==numSamples-1){
 	       // Conclude last range
     		rangeStructureArray[i+1].LowerLimit = rangeStart;
@@ -71,6 +70,7 @@ RangeStructure *buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples
     		rangeStructureArray[i+1].Occurences = occurences;  
 	    }
         }
+	lastValue = value;
 	occurences++;
     }
     char *rangeAndOccurences = (char*)malloc(100);
