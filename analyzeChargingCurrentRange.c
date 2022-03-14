@@ -1,38 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "validateAndSortRange.h"
 #include "analyzeChargingCurrentRange.h"
 
 char* getChargingCurrentRangeAndSamples(int samplesOfChargingCurrent[]){
-	int lowerRangeLimit = 0, upperRangeLimit = 0;
+	struct RangeStructure rangeStructureArray[20];
 	size_t numSamples = 0;
-	char *chargingCurrentRangeAndSamples = (char*)malloc(50);
-	//Deduce the size of the samples
-	numSamples = sizeof(samplesOfChargingCurrent) / sizeof(samplesOfChargingCurrent[0]);
-	printf("%d\n", numSamples);
-	//Get the lower limit and upper limit of the range
-	lowerRangeLimit = getTheLowerLimitOfTheRange(samplesOfChargingCurrent, numSamples);
-	upperRangeLimit = getTheUpperLimitOfTheRange(samplesOfChargingCurrent, numSamples);	        
-	sprintf(chargingCurrentRangeAndSamples, "%d-%d, %d", lowerRangeLimit, upperRangeLimit, numSamples);
-	printf("%s\n", chargingCurrentRangeAndSamples);
+
+	//Validate the input charging samples
+	if(negativeNumberInArray(samplesOfChargingCurrent)){
+		//Deduce the size of the samples
+		numSamples = sizeof(samplesOfChargingCurrent) / sizeof(samplesOfChargingCurrent[0]);
+		printf("The size of the input array is %d\n", numSamples);
+                
+		//Sort the input array
+	         int sortedSamplesOfChargingCurrent[numSamples] = sortChargingSamples(int* samplesOfChargingCurrent, int numSamples);
+		for (int n=0; n<numSamples; n++)
+			printf("%d\n", sortedSamplesOfChargingCurrent);
+	}
 	return chargingCurrentRangeAndSamples;
 }
 
-int getTheLowerLimitOfTheRange(int* samplesOfChargingCurrent, size_t numSamples){
-	int lowerRangeLimit = samplesOfChargingCurrent[0];
-	for (size_t i = 0; i < numSamples; i++) {
-		if(samplesOfChargingCurrent[i] < lowerRangeLimit){
-			lowerRangeLimit = samplesOfChargingCurrent[i];
-		}
-	}
-	return lowerRangeLimit;
-}
-
-int getTheUpperLimitOfTheRange(int* samplesOfChargingCurrent, size_t numSamples){
-	int upperRangeLimit = samplesOfChargingCurrent[0];
-	for (size_t i = 0; i < numSamples; i++) {
-		if(samplesOfChargingCurrent[i] > upperRangeLimit){
-			upperRangeLimit = samplesOfChargingCurrent[i];
-		}
-	}
-	return upperRangeLimit;
-}
