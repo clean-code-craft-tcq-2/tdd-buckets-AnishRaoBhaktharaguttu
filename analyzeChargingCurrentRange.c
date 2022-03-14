@@ -3,6 +3,10 @@
 #include "analyzeChargingCurrentRange.h"
 
 char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent){
+	printf("Entered the input printing section\n");
+	for(int i =0; i<6; i++){
+		printf("%d ", samplesOfChargingCurrent[i]);		
+	}
 	char *rangeAndOccurences = (char*)malloc(100);
  	RangeStructure *rangeStructureArray = (RangeStructure*)malloc(sizeof(RangeStructure) * 20);
 	size_t numSamples = 0;
@@ -15,7 +19,7 @@ char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent){
 	if(negativeNumberInArray(samplesOfChargingCurrent, (int)numSamples)){
 		//Sort the input array
 	        int* sortedSamplesOfChargingCurrent = sortChargingSamples(samplesOfChargingCurrent, (int)numSamples);
-		printf("The sorted array elements are");
+		printf("The sorted array elements are\n");
 		for (int n=0; n<numSamples; n++)
 			printf("%d ", sortedSamplesOfChargingCurrent[n]);
 		
