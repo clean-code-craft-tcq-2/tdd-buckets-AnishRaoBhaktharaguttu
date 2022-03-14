@@ -3,7 +3,7 @@
 
 #include "analyzeChargingCurrentRange.h"
 
-char* getChargingCurrentRangeAndSamples(int samplesOfChargingCurrent[]){
+char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent){
 	char *rangeAndOccurences = (char*)malloc(100);
  	RangeStructure *rangeStructureArray = malloc(sizeof(RangeStructure) * 20);
 	size_t numSamples = 0;
