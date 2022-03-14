@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 #include "analyzeChargingCurrentRange.h"
 
 char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent){
@@ -22,7 +21,7 @@ char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent){
 		
 		RangeStructure* rangeStructureArray = buildRanges(sortedSamplesOfChargingCurrent, numSamples);
 		
-		int sizeOfRangeStructureArray = sizeof(rangeStructureArray) / sizeof(rangeStructureArray[0]);
+		int sizeOfRangeStructureArray = (int) (sizeof(rangeStructureArray) / sizeof(rangeStructureArray[0]));
 		for(int i =0; i<sizeOfRangeStructureArray; i++){
 		sprintf(rangeAndOccurences, "%d-%d, %d", rangeStructureArray[i].LowerLimit, rangeStructureArray[i].UpperLimit, rangeStructureArray[i].Occurences);
 		printf("Range, Readings \n");
