@@ -14,7 +14,7 @@ char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent){
 
 	//Deduce the size of the samples
 
-	printf("The size of the input array is %ld\n", numSamples);
+	printf("The size of the input array is %d\n", (int)numSamples);
 	
 	//Validate the input charging samples
 	if(negativeNumberInArray(samplesOfChargingCurrent, (int)numSamples)){
