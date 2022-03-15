@@ -9,7 +9,8 @@ char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent, int numSa
 		printf("%d ", samplesOfChargingCurrent[i]);		
 	}
 	char *rangeAndOccurences = (char*)malloc(100);
- 	RangeStructure *rangeStructureArray = (RangeStructure*)malloc(sizeof(RangeStructure) * 20);
+ 	RangeStructure rangeStructureArray[20];
+	//RangeStructure *rangeStructureArray= (RangeStructure*)malloc(sizeof(RangeStructure) * 20);
 
 	//Deduce the size of the samples
 
@@ -38,7 +39,7 @@ char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent, int numSa
 	return rangeAndOccurences;
 }
 
-void buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples, RangeStructure rangeStructureArray[]) {
+void buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples, RangeStructure rangeStructureArray[20]) {
     //RangeStructure *rangeStructureArray = (RangeStructure*)malloc(sizeof(RangeStructure) * 20);
     
 	printf("Entered the build range input printing section\n");
