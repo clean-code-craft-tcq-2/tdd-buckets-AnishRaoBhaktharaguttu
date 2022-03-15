@@ -79,6 +79,4 @@ void buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples, RangeStru
 	sprintf(rangeAndOccurences, "%d-%d, %d", rangeStructureArray[i].LowerLimit, rangeStructureArray[i].UpperLimit, rangeStructureArray[i].Occurences);
 	printf("%s\n", rangeAndOccurences);
 	}	
-	
-    return rangeStructureArray;
 }
