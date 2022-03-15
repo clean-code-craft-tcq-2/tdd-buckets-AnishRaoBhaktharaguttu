@@ -23,10 +23,10 @@ char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent, int numSa
 		for (int n=0; n<numSamples; n++)
 			printf("%d ", sortedSamplesOfChargingCurrent[n]);
 		
-		RangeStructure* rangeStructureArray = buildRanges(sortedSamplesOfChargingCurrent, numSamples);
+		buildRanges(sortedSamplesOfChargingCurrent, numSamples, rangeStructureArray);
 		
 		size_t sizeOfRangeStructureArray = (sizeof(rangeStructureArray) / sizeof(rangeStructureArray[0]));
-		printf("The size of the range structure array is %ld\n", sizeOfRangeStructureArray);
+		printf("The size of the range structure array is %lu\n", sizeOfRangeStructureArray);
 		for(int i =0; i<(int)sizeOfRangeStructureArray; i++){
 			printf("Entered the range printing section");
 			sprintf(rangeAndOccurences, "%d-%d, %d", rangeStructureArray[i].LowerLimit, rangeStructureArray[i].UpperLimit, rangeStructureArray[i].Occurences);
@@ -38,8 +38,8 @@ char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent, int numSa
 	return rangeAndOccurences;
 }
 
-RangeStructure *buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples) {
-    RangeStructure *rangeStructureArray = (RangeStructure*)malloc(sizeof(RangeStructure) * 20);
+void buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples, RangeStructure rangeStructureArray[]) {
+    //RangeStructure *rangeStructureArray = (RangeStructure*)malloc(sizeof(RangeStructure) * 20);
     
 	printf("Entered the build range input printing section\n");
 	for(int i =0; i<7; i++){
