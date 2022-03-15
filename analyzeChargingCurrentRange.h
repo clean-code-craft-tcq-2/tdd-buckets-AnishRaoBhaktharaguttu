@@ -1,4 +1,4 @@
 #include "validateAndSortRange.h"
 
 char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent, int numSamples);
-RangeStructure *buildRanges(int* sortedSamplesOfChargingCurrent, int numSamples);
+void buildRanges(int* sortedSamplesOfChargingCurrent, int numSamples, RangeStructure* rangeStructureArray);
