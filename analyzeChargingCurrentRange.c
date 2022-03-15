@@ -52,31 +52,33 @@ void buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples, RangeStru
     int rangeStart = sortedSamplesOfChargingCurrent[0];
     int lastValue = sortedSamplesOfChargingCurrent[0];
     int occurences = 1;
+    int rangeStructureArrayIndex = 0;
     for (int i = 1; i < numSamples; i++) {
         int value = sortedSamplesOfChargingCurrent[i];
         if (value != lastValue + 1) {
 	    printf("\nCondition ended\n");
 	    printf("Value when entering end of range is %d\n ", value); 
             // When it enters this condition, the range has ended
-	    rangeStructureArray[i].LowerLimit = rangeStart;
+	    rangeStructureArray[rangeStructureArrayIndex].LowerLimit = rangeStart;
 	    printf("Start of range: %d\n ", rangeStart); 
-	    rangeStructureArray[i].UpperLimit = lastValue;
+	    rangeStructureArray[rangeStructureArrayIndex].UpperLimit = lastValue;
             printf("End of range: %d\n ", lastValue); 
-	    rangeStructureArray[i].Occurences = occurences;
+	    rangeStructureArray[rangeStructureArrayIndex].Occurences = occurences;
 	    printf("Occurences: %d\n ", occurences); 
 	    rangeStart = value;
 	    occurences = 1;
 	    if(i==numSamples-1){
 	       // Conclude last range
-    		rangeStructureArray[i+1].LowerLimit = rangeStart;
-    		rangeStructureArray[i+1].UpperLimit = lastValue;
-    		rangeStructureArray[i+1].Occurences = occurences;  
+    		rangeStructureArray[rangeStructureArrayIndex+1].LowerLimit = rangeStart;
+    		rangeStructureArray[rangeStructureArrayIndex+1].UpperLimit = lastValue;
+    		rangeStructureArray[rangeStructureArrayIndex+1].Occurences = occurences;  
 	    }
+	    rangeStructureArrayIndex++;
         }
 	lastValue = value;
 	occurences++;
     }
-    char *rangeAndOccurences = (char*)malloc(100); 
+    char *rangeAndOccurences = (char*)malloc(20); 
     printf("****************************************************\n");
     printf("Entered the Build range printing section");
     for(int i =0; i<2; i++){
