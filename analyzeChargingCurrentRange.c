@@ -53,7 +53,7 @@ void buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples, RangeStru
 	    rangeStructureArray[rangeStructureArrayIndex].Occurences = occurences;
 	    printf("Occurences: %d\n ", occurences);
 	    rangeStart = value;
-	    occurences = 1;
+	    occurences = 0;
 	    if(i==numSamples-1){
 	       // Conclude last range
     		rangeStructureArray[rangeStructureArrayIndex+1].LowerLimit = rangeStart;
