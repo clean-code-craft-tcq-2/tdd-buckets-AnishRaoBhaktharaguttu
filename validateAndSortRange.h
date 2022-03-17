@@ -5,6 +5,7 @@ int* sortChargingSamples(int* chargingSamples, int numSamples);
 typedef struct {
   int LowerLimit;
   int UpperLimit;
-  int Occurences; 
+  int Occurences;
+  int validRange;
 } RangeStructure;
 
