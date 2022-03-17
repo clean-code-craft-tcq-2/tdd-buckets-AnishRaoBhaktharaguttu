@@ -87,6 +87,7 @@ void buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples, RangeStru
 	lastValue = value;
 	occurences++;
     }
+    size_t sizeOfRangeStructureArray = (sizeof(rangeStructureArray) / sizeof(rangeStructureArray[0]));
     printf("****************************************************\n");
     printf("Entered the Build range printing section\n");
     for(int i =0; i<(int)sizeOfRangeStructureArray; i++){
@@ -99,7 +100,7 @@ void buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples, RangeStru
     char *rangeAndOccurences = (char*)malloc(20); 
     printf("****************************************************\n");
     printf("Entered the Build range printing section\n");
-    size_t sizeOfRangeStructureArray = (sizeof(rangeStructureArray) / sizeof(rangeStructureArray[0]));
+   
     for(int i =0; i<(int)sizeOfRangeStructureArray; i++){
 	if(rangeStructureArray[i].validRange){
 		sprintf(rangeAndOccurences, "%d-%d, %d", rangeStructureArray[i].LowerLimit, rangeStructureArray[i].UpperLimit, rangeStructureArray[i].Occurences);
