@@ -56,6 +56,7 @@ void buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples, RangeStru
 	    occurences = 0;
 	    if(i==numSamples-1){
 	       // Conclude last range
+		occurences++;    
     		rangeStructureArray[rangeStructureArrayIndex+1].LowerLimit = rangeStart;
     		rangeStructureArray[rangeStructureArrayIndex+1].UpperLimit = value;
     		rangeStructureArray[rangeStructureArrayIndex+1].Occurences = occurences;
