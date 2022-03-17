@@ -27,7 +27,13 @@ char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent, int numSa
 		buildRanges(sortedSamplesOfChargingCurrent, numSamples, rangeStructureArray);
 		
 		size_t sizeOfRangeStructureArray = (sizeof(rangeStructureArray) / sizeof(rangeStructureArray[0]));
-		printf("The size of the range structure array is %lu\n", sizeOfRangeStructureArray);
+		size_t sizeOfRangeStructureArray1 = sizeof(rangeStructureArray);
+		size_t sizeOfRangeStructureArray2 = sizeof(rangeStructureArray[0]);
+		
+		printf("The size of the range structure array in total is %lu\n", sizeOfRangeStructureArray);
+		printf("The size of the range structure array is %lu\n", sizeOfRangeStructureArray1);
+		printf("The size of the range structure array element is %lu\n", sizeOfRangeStructureArray2);
+		
 		printf("****************************************************\n");
 		printf("Entered the Main range printing section");
 		for(int i =0; i<(int)sizeOfRangeStructureArray; i++){
