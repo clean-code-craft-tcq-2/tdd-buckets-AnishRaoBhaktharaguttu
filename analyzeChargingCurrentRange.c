@@ -87,9 +87,18 @@ void buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples, RangeStru
 	lastValue = value;
 	occurences++;
     }
+    printf("****************************************************\n");
+    printf("Entered the Build range printing section\n");
+    for(int i =0; i<(int)sizeOfRangeStructureArray; i++){
+	 printf("Start of range: %d\n ", rangeStructureArray[i].LowerLimit); 
+	 printf("End of range: %d\n ", rangeStructureArray[i].UpperLimit);
+	 printf("Occurences: %d\n ", rangeStructureArray[i].Occurences);
+	 printf("Valid Range: %d\n ", rangeStructureArray[i].validRange);
+    }
+    printf("****************************************************\n");	
     char *rangeAndOccurences = (char*)malloc(20); 
     printf("****************************************************\n");
-    printf("Entered the Build range printing section");
+    printf("Entered the Build range printing section\n");
     size_t sizeOfRangeStructureArray = (sizeof(rangeStructureArray) / sizeof(rangeStructureArray[0]));
     for(int i =0; i<(int)sizeOfRangeStructureArray; i++){
 	if(rangeStructureArray[i].validRange){
