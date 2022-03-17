@@ -9,7 +9,7 @@ char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent, int numSa
 		printf("%d ", samplesOfChargingCurrent[i]);		
 	}
 	char *rangeAndOccurences = (char*)malloc(3);
- 	RangeStructure rangeStructureArray[4];
+ 	RangeStructure rangeStructureArray[3];
 
 	//Deduce the size of the samples
 	
