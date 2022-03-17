@@ -22,7 +22,7 @@ char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent, int numSa
 			printf("%d ", sortedSamplesOfChargingCurrent[n]);
 		
 		buildRanges(sortedSamplesOfChargingCurrent, numSamples, rangeStructureArray);
-	
+	        size_t sizeOfRangeStructureArray = (sizeof(rangeStructureArray) / sizeof(rangeStructureArray[0]));
 		for(int i =0; i<(int)sizeOfRangeStructureArray; i++){
 			sprintf(rangeAndOccurences, "%d-%d, %d", rangeStructureArray[i].LowerLimit, rangeStructureArray[i].UpperLimit, rangeStructureArray[i].Occurences);
 			printf("Range, Readings \n");
@@ -65,7 +65,8 @@ void buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples, RangeStru
 	occurences++;
     }
  
-    char *rangeAndOccurences = (char*)malloc(20); 
+    char *rangeAndOccurences = (char*)malloc(20);
+    size_t sizeOfRangeStructureArray = (sizeof(rangeStructureArray) / sizeof(rangeStructureArray[0]));
     for(int i =0; i<(int)sizeOfRangeStructureArray; i++){
 	sprintf(rangeAndOccurences, "%d-%d, %d", rangeStructureArray[i].LowerLimit, rangeStructureArray[i].UpperLimit, rangeStructureArray[i].Occurences);
 	printf("%s\n", rangeAndOccurences);
