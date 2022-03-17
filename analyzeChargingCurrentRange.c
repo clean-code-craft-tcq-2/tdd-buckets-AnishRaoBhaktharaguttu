@@ -3,12 +3,11 @@
 #include "analyzeChargingCurrentRange.h"
 #define SIZEOF(arr) sizeof(arr) / sizeof(*arr)
 
-char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent, int numSamples){
+void getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent, int numSamples, char* rangeAndOccurences[]){
 	printf("Entered the input printing section\n");
 	for(int i =0; i<numSamples; i++){
 		printf("%d ", samplesOfChargingCurrent[i]);		
 	}
-	char *rangeAndOccurences = (char*)malloc(3);
  	RangeStructure rangeStructureArray[3];
 
 	//Deduce the size of the samples
@@ -24,14 +23,12 @@ char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent, int numSa
 		buildRanges(sortedSamplesOfChargingCurrent, numSamples, rangeStructureArray);
 	        size_t sizeOfRangeStructureArray = (sizeof(rangeStructureArray) / sizeof(rangeStructureArray[0]));
 		for(int i =0; i<(int)sizeOfRangeStructureArray; i++){
-			sprintf(rangeAndOccurences, "%d-%d, %d", rangeStructureArray[i].LowerLimit, rangeStructureArray[i].UpperLimit, rangeStructureArray[i].Occurences);
+			sprintf(rangeAndOccurences[i], "%d-%d, %d", rangeStructureArray[i].LowerLimit, rangeStructureArray[i].UpperLimit, rangeStructureArray[i].Occurences);
 			printf("Range, Readings \n");
 			printf("%s\n", rangeAndOccurences);
 		}
 	
 	}
-	printf("--------------------EOP----------------");
-	return rangeAndOccurences;
 }
 
 void buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples, RangeStructure rangeStructureArray[20]) {
