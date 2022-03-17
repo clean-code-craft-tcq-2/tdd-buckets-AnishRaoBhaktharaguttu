@@ -90,7 +90,8 @@ void buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples, RangeStru
     char *rangeAndOccurences = (char*)malloc(20); 
     printf("****************************************************\n");
     printf("Entered the Build range printing section");
-    for(int i =0; i<2; i++){
+    size_t sizeOfRangeStructureArray = (sizeof(rangeStructureArray) / sizeof(rangeStructureArray[0]));
+    for(int i =0; i<sizeOfRangeStructureArray; i++){
 	if(rangeStructureArray[i].validRange==1){
 		sprintf(rangeAndOccurences, "%d-%d, %d", rangeStructureArray[i].LowerLimit, rangeStructureArray[i].UpperLimit, rangeStructureArray[i].Occurences);
 		printf("%s\n", rangeAndOccurences);
