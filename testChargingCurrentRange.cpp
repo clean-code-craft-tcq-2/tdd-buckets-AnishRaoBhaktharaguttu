@@ -21,5 +21,5 @@ TEST_CASE("Checks invalid use case -  Negative values") {
 TEST_CASE("Checks invalid use case - No values") {
 	int samplesOfChargingCurrent[] = {};
 	char* rangeAndOccurences[3];
-	getChargingCurrentRangeAndSamples(samplesOfChargingCurrent, 7, rangeAndOccurences);
+	getChargingCurrentRangeAndSamples(samplesOfChargingCurrent, 0, rangeAndOccurences);
 }
