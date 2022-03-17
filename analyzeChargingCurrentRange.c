@@ -91,8 +91,8 @@ void buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples, RangeStru
     printf("****************************************************\n");
     printf("Entered the Build range printing section");
     size_t sizeOfRangeStructureArray = (sizeof(rangeStructureArray) / sizeof(rangeStructureArray[0]));
-    for(int i =0; i<sizeOfRangeStructureArray; i++){
-	if(rangeStructureArray[i].validRange==1){
+    for(int i =0; i<(int)sizeOfRangeStructureArray; i++){
+	if(rangeStructureArray[i].validRange){
 		sprintf(rangeAndOccurences, "%d-%d, %d", rangeStructureArray[i].LowerLimit, rangeStructureArray[i].UpperLimit, rangeStructureArray[i].Occurences);
 		printf("%s\n", rangeAndOccurences);
 	}
