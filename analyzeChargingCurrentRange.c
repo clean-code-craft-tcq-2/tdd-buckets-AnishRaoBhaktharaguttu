@@ -37,9 +37,10 @@ void buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples, RangeStru
 	
     int rangeStart = sortedSamplesOfChargingCurrent[0];
     int lastValue = sortedSamplesOfChargingCurrent[0];
-    int occurences = 1;
+    int occurences = 0;
     int rangeStructureArrayIndex = 0;
     for (int i = 1; i < numSamples; i++) {
+	occurences++;
         int value = sortedSamplesOfChargingCurrent[i];
         if (value != lastValue + 1) {
 	    printf("\nCondition ended\n");
@@ -62,7 +63,7 @@ void buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples, RangeStru
 	    rangeStructureArrayIndex++;
         }
 	lastValue = value;
-	occurences++;
+
     }
  
     char *rangeAndOccurences = (char*)malloc(20);
