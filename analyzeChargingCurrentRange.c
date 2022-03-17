@@ -23,6 +23,7 @@ void getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent, int numSam
 		printOutputinCsv(sizeOfRangeStructureArray, rangeStructureArray, rangeAndOccurences);
 	}else{
 		printf("The charging samples are not valid");
+	}
 }
 
 void printOutputinCsv(size_t sizeOfRangeStructureArray, RangeStructure rangeStructureArray[], char* rangeAndOccurences[]){
