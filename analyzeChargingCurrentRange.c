@@ -30,6 +30,7 @@ char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent, int numSa
 		}
 	
 	}
+	printf("--------------------EOP----------------");
 	return rangeAndOccurences;
 }
 
