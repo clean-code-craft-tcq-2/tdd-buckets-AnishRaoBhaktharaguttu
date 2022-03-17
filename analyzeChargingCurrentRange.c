@@ -5,11 +5,11 @@
 
 char* getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent, int numSamples){
 	printf("Entered the input printing section\n");
-	for(int i =0; i<7; i++){
+	for(int i =0; i<numSamples; i++){
 		printf("%d ", samplesOfChargingCurrent[i]);		
 	}
-	char *rangeAndOccurences = (char*)malloc(100);
- 	RangeStructure rangeStructureArray[20];
+	char *rangeAndOccurences = (char*)malloc(3);
+ 	RangeStructure rangeStructureArray[4];
 
 	//Deduce the size of the samples
 	
