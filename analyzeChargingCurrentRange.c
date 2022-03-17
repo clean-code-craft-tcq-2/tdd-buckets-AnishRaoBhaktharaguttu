@@ -4,12 +4,7 @@
 #define SIZEOF(arr) sizeof(arr) / sizeof(*arr)
 
 void getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent, int numSamples, char* rangeAndOccurences[]){
-	printf("Entered the input printing section\n");
-	for(int i =0; i<numSamples; i++){
-		printf("%d ", samplesOfChargingCurrent[i]);		
-	}
  	RangeStructure rangeStructureArray[3];
-	
 	//Validate the input charging samples
 	if(negativeNumberInArray(samplesOfChargingCurrent, numSamples)){
 		//Sort the input array
@@ -43,16 +38,11 @@ void buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples, RangeStru
     for (int i = 1; i < numSamples; i++) {
 	occurences++;
         int value = sortedSamplesOfChargingCurrent[i];
-        if (value != lastValue + 1) {
-	    printf("\nCondition ended\n");
-	    printf("Value when entering end of range is %d\n ", value); 
+        if (value != lastValue + 1) {	 
             // When it enters this condition, the range has ended
-	    rangeStructureArray[rangeStructureArrayIndex].LowerLimit = rangeStart;
-	    printf("Start of range: %d\n ", rangeStart); 
+	    rangeStructureArray[rangeStructureArrayIndex].LowerLimit = rangeStart;  
 	    rangeStructureArray[rangeStructureArrayIndex].UpperLimit = lastValue;
-            printf("End of range: %d\n ", lastValue); 
 	    rangeStructureArray[rangeStructureArrayIndex].Occurences = occurences;
-	    printf("Occurences: %d\n ", occurences);
 	    rangeStart = value;
 	    occurences = 0;
 	    if(i==numSamples-1){
