@@ -9,30 +9,26 @@ void getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent, int numSam
 		printf("%d ", samplesOfChargingCurrent[i]);		
 	}
  	RangeStructure rangeStructureArray[3];
-
-	//Deduce the size of the samples
 	
 	//Validate the input charging samples
 	if(negativeNumberInArray(samplesOfChargingCurrent, numSamples)){
 		//Sort the input array
-	        int* sortedSamplesOfChargingCurrent = sortChargingSamples(samplesOfChargingCurrent, numSamples);
-		printf("The sorted array elements are\n");
-		for (int n=0; n<numSamples; n++)
-			printf("%d ", sortedSamplesOfChargingCurrent[n]);
-		
+	        int* sortedSamplesOfChargingCurrent = sortChargingSamples(samplesOfChargingCurrent, numSamples);		
 		buildRanges(sortedSamplesOfChargingCurrent, numSamples, rangeStructureArray);
 	        size_t sizeOfRangeStructureArray = (sizeof(rangeStructureArray) / sizeof(rangeStructureArray[0]));
-		printf("Size of range struct array is %lu ", sizeOfRangeStructureArray);
+                // Allocate memory to character array
 		for (int i=0; i < (int)sizeOfRangeStructureArray; i++) {
 		rangeAndOccurences[i] = (char*)malloc(10);
 	        }
-		for(int i =0; i<(int)sizeOfRangeStructureArray; i++){
-			printf("DANGER");
-			sprintf(rangeAndOccurences[i], "%d-%d, %d", rangeStructureArray[i].LowerLimit, rangeStructureArray[i].UpperLimit, rangeStructureArray[i].Occurences);
-			printf("Range, Readings \n");
-			printf("%s\n", rangeAndOccurences[i]);
-		}
-	
+		printOutputinCsv(sizeOfRangeStructureArray, rangeStructureArray[], rangeAndOccurences[]);
+	}
+}
+
+void printOutputinCsv(size_t sizeOfRangeStructureArray, RangeStructure rangeStructureArray[], char* rangeAndOccurences[]){
+   for(int i =0; i<(int)sizeOfRangeStructureArray; i++){
+	sprintf(rangeAndOccurences[i], "%d-%d, %d", rangeStructureArray[i].LowerLimit, rangeStructureArray[i].UpperLimit, rangeStructureArray[i].Occurences);
+	printf("Range, Readings \n");
+	printf("%s\n", rangeAndOccurences[i]);
 	}
 }
 
