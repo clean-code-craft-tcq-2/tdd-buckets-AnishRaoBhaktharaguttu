@@ -91,6 +91,7 @@ void buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples, RangeStru
     printf("****************************************************\n");
     printf("Entered the Build range printing section\n");
     for(int i =0; i<(int)sizeOfRangeStructureArray; i++){
+	 printf("-------------------------Entered the Build range printing section----------------------\n");
 	 printf("Start of range: %d\n ", rangeStructureArray[i].LowerLimit); 
 	 printf("End of range: %d\n ", rangeStructureArray[i].UpperLimit);
 	 printf("Occurences: %d\n ", rangeStructureArray[i].Occurences);
