@@ -5,11 +5,14 @@
 
 TEST_CASE("Checks the range of the charging current and the number of samples within the range") {
 	int samplesOfChargingCurrent[] = {1,3,5,2,7,9,4};
+	char* rangeAndOccurences[3];
 	const char* expectedRangeAndSamples = "1-5, 5, 7-7, 1, 9-9, 1";
-	char* chargingCurrentRangeAndSamples = getChargingCurrentRangeAndSamples(samplesOfChargingCurrent, 7);
-	for(int i =0; i<3; i++){
+	getChargingCurrentRangeAndSamples(samplesOfChargingCurrent, 7, rangeAndOccurences);
 	printf("Range, Readings \n");
-	printf("%s\n", chargingCurrentRangeAndSamples);
+	for(int i =0; i<3; i++){
+	printf("%s\n", rangeAndOccurences[i]);
 	}
-	REQUIRE(strcmp(chargingCurrentRangeAndSamples, expectedRangeAndSamples) == 0);
+	REQUIRE(strcmp(rangeAndOccurences[0], "1-5, 5") == 0);
+	REQUIRE(strcmp(rangeAndOccurences[0], "7-7, 1") == 0);
+	REQUIRE(strcmp(rangeAndOccurences[0], "9-9, 1") == 0);
 }
