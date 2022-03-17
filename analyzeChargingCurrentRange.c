@@ -21,7 +21,8 @@ void getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent, int numSam
 		rangeAndOccurences[i] = (char*)malloc(10);
 	        }
 		printOutputinCsv(sizeOfRangeStructureArray, rangeStructureArray, rangeAndOccurences);
-	}
+	}else{
+		printf("The charging samples are not valid");
 }
 
 void printOutputinCsv(size_t sizeOfRangeStructureArray, RangeStructure rangeStructureArray[], char* rangeAndOccurences[]){
