@@ -25,7 +25,7 @@ void getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent, int numSam
 		printf("Size of range struct array is %lu ", sizeOfRangeStructureArray);
 		for(int i =0; i<(int)sizeOfRangeStructureArray; i++){
 			printf("DANGER");
-			sprintf(rangeAndOccurences[i], "%d-%d, %d", rangeStructureArray[i].LowerLimit, rangeStructureArray[i].UpperLimit, rangeStructureArray[i].Occurences);
+			//sprintf(rangeAndOccurences[i], "%d-%d, %d", rangeStructureArray[i].LowerLimit, rangeStructureArray[i].UpperLimit, rangeStructureArray[i].Occurences);
 			printf("Range, Readings \n");
 			printf("%s\n", rangeAndOccurences[i]);
 		}
