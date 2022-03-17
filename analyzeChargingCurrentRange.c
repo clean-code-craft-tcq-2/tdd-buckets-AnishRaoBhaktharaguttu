@@ -20,7 +20,7 @@ void getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent, int numSam
 		for (int i=0; i < (int)sizeOfRangeStructureArray; i++) {
 		rangeAndOccurences[i] = (char*)malloc(10);
 	        }
-		printOutputinCsv(sizeOfRangeStructureArray, rangeStructureArray[], rangeAndOccurences[]);
+		printOutputinCsv(sizeOfRangeStructureArray, rangeStructureArray, rangeAndOccurences);
 	}
 }
 
