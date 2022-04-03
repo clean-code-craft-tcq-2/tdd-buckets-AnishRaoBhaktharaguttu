@@ -48,5 +48,5 @@ void getChargingCurrentRangeAndSamplesForADC(int* ADC_currentValues, size_t numS
 
 void validateAndGetChargingCurrentRangeAndSamplesForADC(int* ADC_currentValues, int *chargingCurrentSamples, int* valid_ADC_currentValues, size_t numSamples, size_t* numberOfValidSamples){
 	checkIfInputADCValuesAreValid(ADC_currentValues, numSamples, valid_ADC_currentValues, numberOfValidSamples);
-	getChargingCurrentRangeAndSamplesForADC(valid_ADC_currentValues, numSamples chargingCurrentSamples);	
+	getChargingCurrentRangeAndSamplesForADC(valid_ADC_currentValues, numSamples, chargingCurrentSamples);	
 }
