@@ -2,13 +2,13 @@
 #include <stdlib.h>
 #include <math.h>
 
-float convertADCValueIntoCurrentValue(float conversionFactor, float scalingFactor, int minCurrentValue, int maxCurrentValue){
+float convertADCValueIntoCurrentValue(float conversionFactor, ADC_OperatingStructure adc_OperatingStructure){
 	float currentValue;	
-	currentValue = minCurrentValue + (maxCurrentValue * conversionFactor * scalingFactor);
+	currentValue = MIN_CURRENT_VALUE  + (MAX_CURRENT_VALUE * conversionFactor * adc_OperatingStructure.scaleFactor);
 	return currentValue;
 }
 
-void checkIfInputADCValuesAreValid(int* ADC_currentValues, size_t numSamples, int *valid_ADC_currentValues, int* numberOfValidSamples) {
+void checkIfInputADCValuesAreValid(int* ADC_currentValues, size_t numSamples, int *valid_ADC_currentValues, size_t* numberOfValidSamples) {
 	int errorValue;
 	size_t i=0;
 	
@@ -39,7 +39,7 @@ void getChargingCurrentRangeAndSamplesForADC(int* ADC_currentValues, size_t numS
     ADC_OperatingStructure adc_OperatingStructure = setupParameterOperatingStructure();
   	for (size_t i=0; i<numSamples; i++){
       float conversionFactor = float(ADC_currentValues[i]) / float(adc_OperatingStructure.maxPossibleInteger);
-      currentValue = convertADCValueIntoCurrentValue(conversionFactor, );
+      currentValue = convertADCValueIntoCurrentValue(conversionFactor, adc_OperatingStructure);
       chargingCurrentSamples[i] =  abs(round(currentValue));
     }
 }
