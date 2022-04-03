@@ -28,7 +28,6 @@ TEST_CASE("Checks for the current values for given ADC (12 bit resolution) and t
 	int ADC_currentValues[] = {700, 400, 3096, 2056, 4095, 3200};
 	char* rangeAndOccurences[5];
 	// Expected Output
-	const char *expectedOutput[4] = {"1-2, 2", "5-5, 1", "8-8, 2"};
-	
+	//const char *expectedOutput[4] = {"1-2, 2", "5-5, 1", "8-8, 2"}
 	getChargingCurrentRangeAndSamplesFromADC(ADC_currentValues, 6, rangeAndOccurences);
 }
