@@ -53,13 +53,15 @@ void getChargingCurrentRangeAndSamplesForADC(int* ADC_currentValues, size_t numS
 	float currentValue;
     ADC_OperatingStructure adc_OperatingStructure = setupParameterOperatingStructure();
     for (size_t i=0; i<numSamples; i++){
+      printf("The ADC sample is:");  
+      printf("%d\n", ADC_currentValues[i]);
       float conversionFactor = float(ADC_currentValues[i]) / float(adc_OperatingStructure.maxPossibleInteger);
       printf("The conversion factor is: ");
       printf("%0.2f", conversionFactor);
       currentValue = convertADCValueIntoCurrentValue(conversionFactor, adc_OperatingStructure);
       chargingCurrentSamples[i] =  abs(round(currentValue));
-      printf("The converted current samples are:");
-      printf("%d", chargingCurrentSamples[i]);
+      printf("The converted current sample is:");
+      printf("%d\n", chargingCurrentSamples[i]);
     }
 }
 
