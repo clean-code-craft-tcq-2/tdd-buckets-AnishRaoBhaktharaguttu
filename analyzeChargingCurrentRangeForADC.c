@@ -20,7 +20,7 @@ void checkIfInputADCValuesAreValid(int* ADC_currentValues, size_t numSamples, in
 			j++;
 		}
 	}
-	*numberOfValidSamples = j;	
+	*numberOfValidSamples = i;	
 }
 
 //Sets up the structure for the ADC with all necessary operating values
