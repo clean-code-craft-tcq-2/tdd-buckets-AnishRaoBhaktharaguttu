@@ -35,8 +35,13 @@ void printOutputinCsv(size_t sizeOfRangeStructureArray, RangeStructure rangeStru
     printf("Printing in csv output successful \n");
 }
 
-void buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples, RangeStructure rangeStructureArray[20]) {
-	
+void buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples, RangeStructure rangeStructureArray[20]) { 
+    printf("The sorted samples inside build Range are: ");
+    for(int k = 0: k< numSample; k++){
+    printf("%d", sortedSamplesOfChargingCurrent[i]);
+    }
+    printf("Number of samples inside build Range: ");
+    printf("%zu\n", numSamples);
     int rangeStart = sortedSamplesOfChargingCurrent[0];
     int lastValue = sortedSamplesOfChargingCurrent[0];
     int occurences = 0;
