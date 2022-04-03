@@ -6,7 +6,7 @@
 TEST_CASE("Checks for the current values for given ADC - 12 bit resolution and the range") {
 	int ADC_currentValues[] = {700, 400, 3096, 700, 4095};
 	char* rangeAndOccurences[5];
-	getChargingCurrentRangeAndSamplesFromADC(ADC_currentValues, 6, rangeAndOccurences);
+	getChargingCurrentRangeAndSamplesFromADC(ADC_currentValues, 5, rangeAndOccurences);
 }
 
 TEST_CASE("Checks the range of the charging current and the number of samples within the range") {
