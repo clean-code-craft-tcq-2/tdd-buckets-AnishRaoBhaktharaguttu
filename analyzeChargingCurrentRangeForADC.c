@@ -8,7 +8,7 @@ float convertADCValueIntoCurrentValue(float conversionFactor, float scalingFacto
 	return currentValue;
 }
 
-void checkIfInputADCValuesAreValid(int* ADC_currentValues, size_t numSamples, int *valid_ADC_currentValues) {
+void checkIfInputADCValuesAreValid(int* ADC_currentValues, size_t numSamples, int *valid_ADC_currentValues, int* numberOfValidSamples) {
 	int errorValue;
 	size_t i=0;
 	
@@ -19,7 +19,8 @@ void checkIfInputADCValuesAreValid(int* ADC_currentValues, size_t numSamples, in
 			valid_ADC_currentValues[j] = ADC_currentValues[i];
 			j++;
 		}
-	}	
+	}
+	*numberOfValidSamples = j;	
 }
 
 //Sets up the structure for the ADC with all necessary operating values
@@ -45,7 +46,7 @@ void getChargingCurrentRangeAndSamplesForADC(int* ADC_currentValues, size_t numS
 
 
 
-void validateAndGetChargingCurrentRangeAndSamplesForADC(int* ADC_currentValues, int *chargingCurrentSamples, int* valid_ADC_currentValues, size_t numSamples){
-	checkIfInputADCValuesAreValid(ADC_currentValues, numSamples, valid_ADC_currentValues);
+void validateAndGetChargingCurrentRangeAndSamplesForADC(int* ADC_currentValues, int *chargingCurrentSamples, int* valid_ADC_currentValues, size_t numSamples, size_t* numberOfValidSamples){
+	checkIfInputADCValuesAreValid(ADC_currentValues, numSamples, valid_ADC_currentValues, numberOfValidSamples);
 	getChargingCurrentRangeAndSamplesForADC(valid_ADC_currentValues, numSamples chargingCurrentSamples);	
 }
