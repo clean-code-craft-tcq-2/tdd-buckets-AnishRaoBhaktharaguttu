@@ -38,7 +38,7 @@ void printOutputinCsv(size_t sizeOfRangeStructureArray, RangeStructure rangeStru
 void buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples, RangeStructure rangeStructureArray[20]) { 
     printf("The sorted samples inside build Range are: ");
     for(int k = 0: k< numSamples; k++){
-    printf("%d", sortedSamplesOfChargingCurrent[i]);
+    printf("%d", sortedSamplesOfChargingCurrent[k]);
     }
     printf("Number of samples inside build Range: ");
     printf("%d\n", numSamples);
