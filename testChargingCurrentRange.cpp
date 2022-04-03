@@ -36,7 +36,7 @@ TEST_CASE("Checks for the current values for given ADC - 12 bit resolution and t
 
 TEST_CASE("Checks if the ADC value has converted to current values") {
 	
-         int ADC_currentValues[] = {110, 3120, 2021, 4096};
+         int ADC_currentValues[] = {110, 3120, 2021, 4095};
 
          int expectedChargingCurrentValues[] = {0, 8, 5};
 
