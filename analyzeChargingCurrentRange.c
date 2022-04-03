@@ -60,7 +60,7 @@ void buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples, RangeStru
     } 
 }
 
-void getChargingCurrentRangeAndSamplesFromADC(int *ADC_currentValues, size_t numSamples, char* rangeAndOccurences[]){
+void getChargingCurrentRangeAndSamplesFromADC(int *ADC_currentValues, int numSamples, char* rangeAndOccurences[]){
 	 int chargingCurrentSamples[numSamples];
          int valid_ADC_currentValues[numSamples];
 	 size_t numValidSamples; 
