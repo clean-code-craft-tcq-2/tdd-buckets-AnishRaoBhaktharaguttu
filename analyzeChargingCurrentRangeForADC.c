@@ -2,6 +2,19 @@
 #include <stdlib.h>
 #include <math.h>
 
+#define ADC_RESOLUTION 12
+#define MIN_CURRENT_VALUE 0
+#define MAX_CURRENT_VALUE 10
+
+//Define the Parameter Operating Structure
+typedef struct {
+  int minCurrentValue;
+  int maxCurrentValue;
+  int maxPossibleInteger;
+  int currentRange;
+  float scaleFactor;
+} ADC_OperatingStructure;
+
 float convertADCValueIntoCurrentValue(float conversionFactor, ADC_OperatingStructure adc_OperatingStructure){
 	float currentValue;	
 	currentValue = MIN_CURRENT_VALUE  + (MAX_CURRENT_VALUE * conversionFactor * adc_OperatingStructure.scaleFactor);
