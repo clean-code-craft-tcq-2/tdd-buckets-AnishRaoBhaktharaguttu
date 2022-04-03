@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "analyzeChargingCurrentRangeForADC.h"
+
 float convertADCValueIntoCurrentValue(float conversionFactor, ADC_OperatingStructure adc_OperatingStructure){
 	float currentValue;	
 	currentValue = MIN_CURRENT_VALUE  + (MAX_CURRENT_VALUE * conversionFactor * adc_OperatingStructure.scaleFactor);
