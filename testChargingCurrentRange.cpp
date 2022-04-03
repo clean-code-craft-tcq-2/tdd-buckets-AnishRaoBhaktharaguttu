@@ -23,3 +23,15 @@ TEST_CASE("Checks invalid use case - No values") {
 	char* rangeAndOccurences[3];
 	getChargingCurrentRangeAndSamples(samplesOfChargingCurrent, 0, rangeAndOccurences);
 }
+
+TEST_CASE("Checks for the current values for given ADC (12 bit resolution) and the range") {
+	int ADC_currentValues[] = {700, 400, 3096, 2056, 4095, 3200};
+	char* rangeAndOccurences[5];
+	// Expected Output
+	const char *expectedOutput[4] = {"1-2, 2", "5-5, 1", "8-8, 2"};
+	
+	getChargingCurrentRangeAndSamplesFromADC(ADC_currentValues, 6, rangeAndOccurences);
+	REQUIRE(strcmp(rangeAndOccurences[0], "1-5, 5") == 0);
+	REQUIRE(strcmp(rangeAndOccurences[1], "7-7, 1") == 0);
+	REQUIRE(strcmp(rangeAndOccurences[2], "9-9, 1") == 0);
+}
