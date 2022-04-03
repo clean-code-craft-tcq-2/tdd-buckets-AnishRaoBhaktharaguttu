@@ -3,6 +3,12 @@
 #include "catch.hpp"
 #include "analyzeChargingCurrentRange.h"
 
+TEST_CASE("Checks for the current values for given ADC - 12 bit resolution and the range") {
+	int ADC_currentValues[] = {700, 400, 3096, 2056, 4095, 3200};
+	char* rangeAndOccurences[5];
+	getChargingCurrentRangeAndSamplesFromADC(ADC_currentValues, 6, rangeAndOccurences);
+}
+
 TEST_CASE("Checks the range of the charging current and the number of samples within the range") {
 	int samplesOfChargingCurrent[] = {1,3,5,2,7,9,4};
 	char* rangeAndOccurences[3];
@@ -24,10 +30,4 @@ TEST_CASE("Checks invalid use case - No values") {
 	getChargingCurrentRangeAndSamples(samplesOfChargingCurrent, 0, rangeAndOccurences);
 }
 
-// TEST_CASE("Checks for the current values for given ADC (12 bit resolution) and the range") {
-// 	int ADC_currentValues[] = {700, 400, 3096, 2056, 4095, 3200};
-// 	char* rangeAndOccurences[5];
-// 	// Expected Output
-// 	//const char *expectedOutput[4] = {"1-2, 2", "5-5, 1", "8-8, 2"}
-// 	getChargingCurrentRangeAndSamplesFromADC(ADC_currentValues, 6, rangeAndOccurences);
-// }
+
