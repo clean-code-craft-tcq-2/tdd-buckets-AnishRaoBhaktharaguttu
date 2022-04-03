@@ -70,5 +70,5 @@ void getChargingCurrentRangeAndSamplesFromADC(int *ADC_currentValues, int numSam
 	 size_t numValidSamples; 
 
 	validateAndGetChargingCurrentRangeAndSamplesForADC(ADC_currentValues, chargingCurrentSamples, valid_ADC_currentValues, numSamples, &numValidSamples);
-	getChargingCurrentRangeAndSamples(chargingCurrentSamples, numValidSamples, rangeAndOccurences);
+	getChargingCurrentRangeAndSamples(chargingCurrentSamples, (int)numValidSamples, rangeAndOccurences);
 }
