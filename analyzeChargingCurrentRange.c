@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "analyzeChargingCurrentRange.h"
+#include "analyzeChargingCurrentRangeForADC.h"
+
 #define SIZEOF(arr) sizeof(arr) / sizeof(*arr)
 
 void getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent, int numSamples, char* rangeAndOccurences[]){
@@ -56,4 +58,13 @@ void buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples, RangeStru
         }
 	lastValue = value;
     } 
+}
+
+void getChargingCurrentRangeAndSamplesFromADC(int *ADC_currentValues, size_t numSamples, char* rangeAndOccurences[]){
+	 int chargingCurrentSamples[numSamples];
+         int valid_ADC_currentValues[numSamples];
+	 size_t numValidSamples; 
+
+	validateAndGetChargingCurrentRangeAndSamplesForADC(ADC_currentValues, chargingCurrentSamples, int* valid_ADC_currentValues, size_t numSamples, size_t numValidSamples);
+	getChargingCurrentRangeAndSamples(chargingCurrentSamples, numValidSamples, rangeAndOccurences);
 }
