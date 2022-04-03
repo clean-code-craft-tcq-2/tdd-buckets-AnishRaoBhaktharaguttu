@@ -41,7 +41,7 @@ TEST_CASE("Checks if the ADC value has converted to current values") {
 
          size_t numberOfValidSamples;
          int chargingCurrentSamples[4];
-	 int ValidADC_Values[4];
+	 int valid_ADC_currentValues[4];
          validateAndGetChargingCurrentRangeAndSamplesForADC(ADC_currentValues,chargingCurrentSamples, valid_ADC_currentValues, 4, numberOfValidSamples);
          for(size_t k=0; k<numberOfValidSamples; k++) {
                          REQUIRE(chargingCurrentSamples[k] == expectedChargingCurrentValues[k]);
