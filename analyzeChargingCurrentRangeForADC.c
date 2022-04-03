@@ -28,9 +28,9 @@ void checkIfInputADCValuesAreValid(int* ADC_currentValues, int numSamples, int *
 	errorValue = pow(2, ADC_RESOLUTION) - 1;
 	
 	for(int j = 0; j < numSamples; j++){
-		if(ADC_currentValues[i] != errorValue){
-			valid_ADC_currentValues[j] = ADC_currentValues[i];
-			j++;
+		if(ADC_currentValues[j] != errorValue){
+			valid_ADC_currentValues[i] = ADC_currentValues[j];
+			i++;
 		}
 	}
 	*numberOfValidSamples = i;
