@@ -28,6 +28,9 @@ TEST_CASE("Checks for the current values for given ADC - 12 bit resolution and t
 	int ADC_currentValues[] = {700, 400, 3096, 4095, 2200};
 	char* rangeAndOccurences[5];
 	getChargingCurrentRangeAndSamplesFromADC(ADC_currentValues, 6, rangeAndOccurences);
+	REQUIRE(strcmp(rangeAndOccurences[0], "0-2, 3") == 0);
+	REQUIRE(strcmp(rangeAndOccurences[1], "5-5, 1") == 0);
+	REQUIRE(strcmp(rangeAndOccurences[2], "8-8, 1") == 0);
 }
 
 
