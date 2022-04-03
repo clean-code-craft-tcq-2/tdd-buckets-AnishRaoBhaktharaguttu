@@ -13,6 +13,8 @@ void getChargingCurrentRangeAndSamples(int* samplesOfChargingCurrent, int numSam
 	        int* sortedSamplesOfChargingCurrent = sortChargingSamples(samplesOfChargingCurrent, numSamples);		
 		buildRanges(sortedSamplesOfChargingCurrent, numSamples, rangeStructureArray);
 	        size_t sizeOfRangeStructureArray = (sizeof(rangeStructureArray) / sizeof(rangeStructureArray[0]));
+		printf("Size of the range array: ");
+		printf("%zu", sizeOfRangeStructureArray);
                 // Allocate memory to character array
 		for (int i=0; i < (int)sizeOfRangeStructureArray; i++) {
 		rangeAndOccurences[i] = (char*)malloc(10);
@@ -29,6 +31,7 @@ void printOutputinCsv(size_t sizeOfRangeStructureArray, RangeStructure rangeStru
 	printf("Range, Readings \n");
 	printf("%s\n", rangeAndOccurences[i]);
 	}
+    printf("Printing in csv output successful \n");
 }
 
 void buildRanges(int sortedSamplesOfChargingCurrent[], int numSamples, RangeStructure rangeStructureArray[20]) {
