@@ -2,6 +2,7 @@
 
 #include "catch.hpp"
 #include "analyzeChargingCurrentRange.h"
+#include "analyzeChargingCurrentRangeForADC.h"
 
 TEST_CASE("Checks the range of the charging current and the number of samples within the range") {
 	int samplesOfChargingCurrent[] = {1,3,5,2,7,9,4};
