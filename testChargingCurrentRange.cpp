@@ -33,4 +33,19 @@ TEST_CASE("Checks for the current values for given ADC - 12 bit resolution and t
 	REQUIRE(strcmp(rangeAndOccurences[2], "8-8, 1") == 0);
 }
 
+TEST_CASE("Checks if the ADC value has converted to current values") {
+	
+         int ADC_currentValues[] = {110, 3120, 2021, 4096};
+
+         int expectedChargingCurrentValues[] = {0, 8, 5};
+
+         size_t numberOfValidSamples;
+         int chargingCurrentSamples[4];
+	 int ValidADC_Values[4];
+         validateAndGetChargingCurrentRangeAndSamplesForADC(ADC_currentValues,chargingCurrentSamples, valid_ADC_currentValues, 4, numberOfValidSamples);
+         for(size_t k=0; k<numberOfValidSamples; k++) {
+                         REQUIRE(chargingCurrentSamples[k] == expectedChargingCurrentValues[k]);
+         }
+}
+
 
