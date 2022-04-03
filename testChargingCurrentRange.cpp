@@ -25,18 +25,6 @@ TEST_CASE("Checks invalid use case - No values") {
 	getChargingCurrentRangeAndSamples(samplesOfChargingCurrent, 0, rangeAndOccurences);
 }
 
-TEST_CASE("Check for validation of input ADC value array") {
-
-	int ADC_currentValues[] = {2285, 4092, 4095};
-	int expectedValidADC_Values[] = {2285, 4092};
-	size_t numberOfValidSamples;
-	int valid_ADC_currentValues[3];
-	checkIfInputADCValuesAreValid(ADC_currentValues, 3, valid_ADC_currentValues, &numberOfValidSamples);
-	for(size_t i=0; i<numberOfValidSamples; i++){
-		REQUIRE(valid_ADC_currentValues[i] == expectedValidADC_Values[i]);
-	}
-}
-
 TEST_CASE("Checks for the current values for given ADC - 12 bit resolution and the range") {
 	int ADC_currentValues[] = {700, 400, 3096, 4095, 2200};
 	char* rangeAndOccurences[5];
