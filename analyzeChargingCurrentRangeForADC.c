@@ -33,7 +33,9 @@ void checkIfInputADCValuesAreValid(int* ADC_currentValues, int numSamples, int *
 			j++;
 		}
 	}
-	*numberOfValidSamples = i;	
+	*numberOfValidSamples = i;
+	printf("the number of valid samples are:");
+	printf("%zu", i);
 }
 
 //Sets up the structure for the ADC with all necessary operating values
@@ -52,6 +54,8 @@ void getChargingCurrentRangeAndSamplesForADC(int* ADC_currentValues, size_t numS
     ADC_OperatingStructure adc_OperatingStructure = setupParameterOperatingStructure();
   	for (size_t i=0; i<numSamples; i++){
       float conversionFactor = float(ADC_currentValues[i]) / float(adc_OperatingStructure.maxPossibleInteger);
+      printf("The conversion factor is: ");
+      printf("%0.2f", conversionFactor);
       currentValue = convertADCValueIntoCurrentValue(conversionFactor, adc_OperatingStructure);
       chargingCurrentSamples[i] =  abs(round(currentValue));
     }
